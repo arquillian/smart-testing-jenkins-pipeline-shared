@@ -1,0 +1,25 @@
+<strong>smartTesting(body)</strong>
+
+<p>
+    Runs smart testing if project is configured to use it.
+    It runs Maven but taking care of all configuration parameters.
+
+    The parameter is a Map, that expects configuration key, value pairs, whose default values are:
+
+    mvnHome = mvn. Sets Maven Home. If not set, then it runs <i>mvn</i> directly.
+    goals = clean, test. Sets goal of Maven execution.
+    profiles = ''. Sets Maven profile.
+    strategies = ''. Sets Smart Testing strategies.
+    scmRange = last commit. Map resulting of calling <i>checkout scm</i>. If not set, last commit is used.
+    extraParams = ''. String concatenated before goals.
+
+    As an example:
+
+    <code>
+      script {
+        def scmVars = checkout scm
+        smartTesting(strategies: 'new, changed', scmRange: scmVars)
+      }
+    </code>
+
+</p>
